@@ -1,2 +1,2 @@
 # DataCamp_LearningPath
-Documented all the techniques, code, project I learned from DataCamp
+This repository documented the techniques, codes, projects I have learned from DataCamp- Data Scientist Track.
