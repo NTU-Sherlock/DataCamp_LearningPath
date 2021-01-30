@@ -73,13 +73,13 @@ class BetterDate:
     def __init__(self, year, month, day):
       self.year, self.month, self.day = year, month, day
       
-    @classmethod#Use Decorator
+    @classmethod  #Use Decorator
     def from_str(cls, datestr):
         year, month, day = map(int, datestr.split("-"))
         return cls(year, month, day)
     
     # Define a class method from_datetime accepting a datetime object
-    @classmethod#Use Decorator
+    @classmethod  #Use Decorator
     def from_datetime(cls, datetime):
         year, month, day = datetime.year, datetime.month, datetime.day
         return cls(year, month, day)
@@ -117,3 +117,57 @@ print(mng.name)
 
 # Call mng.display()
 mng.display()
+
+# Polymorphism
+class Employee:
+    def __init__(self, name, salary=30000):
+        self.name = name
+        self.salary = salary
+
+    def give_raise(self, amount):
+        self.salary += amount
+
+        
+class Manager(Employee):
+    def display(self):
+        print("Manager ", self.name)
+
+    def __init__(self, name, salary=50000, project=None):
+        Employee.__init__(self, name, salary)
+        self.project = project
+
+    # Add a give_raise method
+    def give_raise(self, amount, bonus = 1.05):
+        Employee.give_raise(self, amount*bonus)
+
+    
+mngr = Manager("Ashta Dunbar", 78500)
+mngr.give_raise(1000)
+print(mngr.salary)
+mngr.give_raise(2000, bonus=1.03)
+print(mngr.salary)
+
+
+# Customizing a DataFrame
+# Import pandas as pd
+import pandas as pd
+
+# Define LoggedDF inherited from pd.DataFrame and add the constructor
+class LoggedDF(pd.DataFrame):
+  
+  def __init__(self, *args, **kwargs):
+    pd.DataFrame.__init__(self, *args, **kwargs)
+    self.created_at = datetime.today()
+    
+  def to_csv(self, *args, **kwargs):
+    # Copy self to a temporary DataFrame
+    temp = self.copy()
+    
+    # Create a new column filled with self.created at
+    temp["created_at"] = self.created_at
+    
+    # Call pd.DataFrame.to_csv on temp with *args and **kwargs
+    pd.DataFrame.to_csv(temp, *args, **kwargs)
+    
+
+    
