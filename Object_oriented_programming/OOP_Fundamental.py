@@ -67,7 +67,7 @@ print(emp.hire_date)
 # Write the class Point as outlined in the instructions
 import numpy as np
 class Point:
-    def __init__(self, x=0.0,y=0.0):
+    def __init__(self, x=0.0,y=0.0):##　This is called constructor
         self.x = x
         self.y = y
     def distance_to_origin(self):
