@@ -1,15 +1,15 @@
-# Print the mystery employee's name
-print(mystery.name)
+# # Print the mystery employee's name
+# print(mystery.name)
 
-# Print the mystery employee's salary
-print(mystery.salary)
+# # Print the mystery employee's salary
+# print(mystery.salary)
 
-help(mystery)
-# Give the mystery employee a raise of $2500
-mystery.give_raise(2500)
+# help(mystery)
+# # Give the mystery employee a raise of $2500
+# mystery.give_raise(2500)
 
-# Print the salary again
-print(mystery.salary)
+# # Print the salary again
+# print(mystery.salary)
 
 
 ## First Class
@@ -80,3 +80,11 @@ class Point:
         else:
             print('There has been an error in the system')
   
+
+pt = Point(x=3.0)
+pt.reflect("y")
+print((pt.x, pt.y))
+pt.y = 4.0
+print(pt.distance_to_origin())
+(-3.0,0.0)
+5.0
