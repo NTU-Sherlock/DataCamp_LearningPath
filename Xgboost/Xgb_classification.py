@@ -43,6 +43,7 @@ y_pred_4 = dt_clf_4.predict(X_test)
 accuracy = float(np.sum(y_pred_4==y_test))/y_test.shape[0]
 print("accuracy:", accuracy)
 
+#
 # Create arrays for the features and the target: X, y
 X, y = churn_data.iloc[:,:-1], churn_data.iloc[:,-1]
 
@@ -62,21 +63,3 @@ print(cv_results)
 
 # Print the accuracy
 print(((1-cv_results["test-error-mean"]).iloc[-1]))
-
-
-##AUC
-
-# Perform cross_validation: cv_results
-cv_results = xgb.cv(dtrain=churn_dmatrix, params=params, 
-                  nfold=3, num_boost_round=5, 
-                  metrics="auc", as_pandas=True, seed=123)
-
-# Print cv_results
-print(cv_results)
-
-# Print the AUC
-print((cv_results["test-auc-mean"]).iloc[-1])
-
-
-###Use xgboost: 1000samles+ and samples > features
-###don't use while: image recognition, nlp, computer vision
