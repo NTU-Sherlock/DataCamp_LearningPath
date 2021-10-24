@@ -60,7 +60,7 @@ fig = px.histogram(
   			# Set the data and x variable
   			data_frame=revenues, x= 'Revenue', nbins=5,
     		# Set the color map and variable
-			color_discrete_map=ind_color_map,
+			color_discrete_map=ind_col	or_map,
 			color='Industry')
 
 # Show the plot
