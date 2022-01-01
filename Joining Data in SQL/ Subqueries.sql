@@ -169,4 +169,4 @@ SELECT name, country_code, city_proper_pop, metroarea_pop,
 -- Order appropriately
 ORDER BY city_perc desc
 -- Limit amount
-limit 1
+limit 10
